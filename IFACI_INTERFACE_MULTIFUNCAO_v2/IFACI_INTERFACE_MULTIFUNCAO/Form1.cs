@@ -8,12 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
+using System.Diagnostics;
 
 namespace IFACI_INTERFACE_MULTIFUNCAO
 {
     public partial class Form1 : Form
     {
-        private String dadosBrutos = "";
         public Form1()
         {
             InitializeComponent();
@@ -21,25 +21,45 @@ namespace IFACI_INTERFACE_MULTIFUNCAO
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           string[] portas = SerialPort.GetPortNames();
-           comboBoxPortas.Items.AddRange(portas);
+            string[] portas = SerialPort.GetPortNames();
+            comboBoxPortas.Items.AddRange(portas);
         }
 
         private void lerDados(object sender, EventArgs e)
         {
-            dadosBrutos = serialPort1.ReadExisting();
-            //Console.Write(dadosBrutos);
-            if (dadosBrutos != "")
+            string dadosBrutos = serialPort1.ReadExisting();
+            if (!string.IsNullOrEmpty(dadosBrutos))
             {
                 string[] dados = dadosBrutos.Split(',');
-                float ajuste = float.Parse(dados[0]);
-                Console.Write(dados[0]);
-                double temp = double.Parse(dados[1]);
+                if (dados.Length >= 2)
+                {
+                    if (float.TryParse(dados[0], out float valor) &&
+                        float.TryParse(dados[1], out float temp))
+                    {
+                        if (valor > 0)
+                        {
+                            float ajuste = (valor * 100) / 1023;
+                            aGAjuste.Value = ajuste;
+                        }
+                        else
+                        {
+                            aGAjuste.Value = 0;
+                        }
+                        if (temp > 0)
+                        {
+                            aGTemp.Value = temp;
+                        }
+                        else
+                        {
+                            aGTemp.Value = 0;
+                        }
 
-                aGAjuste.Value = ajuste;
-                //aGTemp.Value = temp;
-                serialPort1.DiscardInBuffer();
-                serialPort1.DiscardOutBuffer();
+                    }
+                    else
+                    {
+                        Debug.WriteLine("Dados recebidos em formato inválido");
+                    }
+                }
             }
         }
 
@@ -50,6 +70,12 @@ namespace IFACI_INTERFACE_MULTIFUNCAO
 
         private void btiniciar_Click(object sender, EventArgs e)
         {
+            if (comboBoxPortas.SelectedItem == null)
+            {
+                MessageBox.Show("Selecione uma porta COM");
+                return;
+            }
+
             if (serialPort1 == null || !serialPort1.IsOpen)
             {
                 serialPort1.PortName = comboBoxPortas.SelectedItem.ToString();
@@ -72,21 +98,21 @@ namespace IFACI_INTERFACE_MULTIFUNCAO
                 serialPort1.WriteLine("1");
                 pictureBox6.Visible = true;
                 pictureBox3.Visible = false;
-                
+
             }
-            
+
         }
 
         private void btDesligarLED_Click(object sender, EventArgs e)
         {
-            if (serialPort1.IsOpen) 
+            if (serialPort1.IsOpen)
             {
                 serialPort1.DiscardInBuffer();
                 serialPort1.DiscardOutBuffer();
                 serialPort1.WriteLine("0");
                 pictureBox6.Visible = false;
                 pictureBox3.Visible = true;
-                
+
             }
         }
     }
