@@ -1,0 +1,137 @@
+[
+    {
+        "id": "042dcdc8ddc6dc13",
+        "type": "tab",
+        "label": "Fluxo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ef5e7db7b3e65a89",
+        "type": "tab",
+        "label": "Fluxo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d7b664f651c9fea4",
+        "type": "serial-port",
+        "name": "RS232",
+        "serialport": "COM10",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "0c1850fb4bad8b85",
+        "type": "function",
+        "z": "ef5e7db7b3e65a89",
+        "name": "function 1",
+        "func": "try {\n    msg.organizedData = msg.payload.split(',').map(Number);\n    let globalData = global.get(\"obj\");\n    globalData = {\n        'temperature':msg.organizedData[0],\n        'potentiometer':msg.organizedData[1]\n    }\n\n    global.set(\"obj\", globalData);\n} catch (err) {\n    console.log(\"Erro ao organizar dados:\", err);\n    msg.organizedData = []; \n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 260,
+        "wires": [
+            [
+                "9bc9af095b60b769"
+            ]
+        ]
+    },
+    {
+        "id": "9bc9af095b60b769",
+        "type": "debug",
+        "z": "ef5e7db7b3e65a89",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "9d5bca01b676ab2a",
+        "type": "http in",
+        "z": "ef5e7db7b3e65a89",
+        "name": "Data",
+        "url": "/sensorsData",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 310,
+        "y": 340,
+        "wires": [
+            [
+                "6eae783b9571e2d4"
+            ]
+        ]
+    },
+    {
+        "id": "6eae783b9571e2d4",
+        "type": "function",
+        "z": "ef5e7db7b3e65a89",
+        "name": "function 2",
+        "func": "let rescueData = global.get(\"obj\");\nmsg.payload = rescueData;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 340,
+        "wires": [
+            [
+                "618681571f38534a"
+            ]
+        ]
+    },
+    {
+        "id": "618681571f38534a",
+        "type": "http response",
+        "z": "ef5e7db7b3e65a89",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 750,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "35b90912ddeb14d8",
+        "type": "serial in",
+        "z": "ef5e7db7b3e65a89",
+        "name": "Serial-Arduino",
+        "serial": "d7b664f651c9fea4",
+        "x": 310,
+        "y": 260,
+        "wires": [
+            [
+                "0c1850fb4bad8b85"
+            ]
+        ]
+    }
+]

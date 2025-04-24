@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.AGaugeLabel aGaugeLabel1 = new System.Windows.Forms.AGaugeLabel();
-            System.Windows.Forms.AGaugeRange aGaugeRange1 = new System.Windows.Forms.AGaugeRange();
-            System.Windows.Forms.AGaugeRange aGaugeRange2 = new System.Windows.Forms.AGaugeRange();
-            System.Windows.Forms.AGaugeRange aGaugeRange3 = new System.Windows.Forms.AGaugeRange();
-            System.Windows.Forms.AGaugeRange aGaugeRange4 = new System.Windows.Forms.AGaugeRange();
-            System.Windows.Forms.AGaugeLabel aGaugeLabel2 = new System.Windows.Forms.AGaugeLabel();
+            System.Windows.Forms.AGaugeLabel aGaugeLabel3 = new System.Windows.Forms.AGaugeLabel();
+            System.Windows.Forms.AGaugeRange aGaugeRange5 = new System.Windows.Forms.AGaugeRange();
+            System.Windows.Forms.AGaugeRange aGaugeRange6 = new System.Windows.Forms.AGaugeRange();
+            System.Windows.Forms.AGaugeRange aGaugeRange7 = new System.Windows.Forms.AGaugeRange();
+            System.Windows.Forms.AGaugeRange aGaugeRange8 = new System.Windows.Forms.AGaugeRange();
+            System.Windows.Forms.AGaugeLabel aGaugeLabel4 = new System.Windows.Forms.AGaugeLabel();
             this.aGTemp = new System.Windows.Forms.AGauge();
             this.aGAjuste = new System.Windows.Forms.AGauge();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
@@ -46,8 +46,10 @@
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.btLigarLED = new System.Windows.Forms.Button();
             this.btDesligarLED = new System.Windows.Forms.Button();
+            this.webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             this.SuspendLayout();
             // 
             // aGTemp
@@ -58,43 +60,43 @@
             this.aGTemp.BaseArcSweep = 270;
             this.aGTemp.BaseArcWidth = 2;
             this.aGTemp.Center = new System.Drawing.Point(105, 105);
-            aGaugeLabel1.Color = System.Drawing.SystemColors.WindowText;
-            aGaugeLabel1.Name = "GaugeLabel1";
-            aGaugeLabel1.Position = new System.Drawing.Point(70, 150);
-            aGaugeLabel1.Text = "Temperatura";
-            this.aGTemp.GaugeLabels.Add(aGaugeLabel1);
-            aGaugeRange1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            aGaugeRange1.EndValue = 30F;
-            aGaugeRange1.InnerRadius = 50;
-            aGaugeRange1.InRange = false;
-            aGaugeRange1.Name = "GaugeRangeNormal";
-            aGaugeRange1.OuterRadius = 80;
-            aGaugeRange1.StartValue = 0F;
-            aGaugeRange2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            aGaugeRange2.EndValue = 60F;
-            aGaugeRange2.InnerRadius = 50;
-            aGaugeRange2.InRange = false;
-            aGaugeRange2.Name = "GaugeRangeAtencao";
-            aGaugeRange2.OuterRadius = 80;
-            aGaugeRange2.StartValue = 30F;
-            aGaugeRange3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            aGaugeRange3.EndValue = 90F;
-            aGaugeRange3.InnerRadius = 50;
-            aGaugeRange3.InRange = false;
-            aGaugeRange3.Name = "GaugeRangeAlerta1";
-            aGaugeRange3.OuterRadius = 80;
-            aGaugeRange3.StartValue = 60F;
-            aGaugeRange4.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            aGaugeRange4.EndValue = 120F;
-            aGaugeRange4.InnerRadius = 50;
-            aGaugeRange4.InRange = false;
-            aGaugeRange4.Name = "GaugeRangeAlerta2";
-            aGaugeRange4.OuterRadius = 80;
-            aGaugeRange4.StartValue = 90F;
-            this.aGTemp.GaugeRanges.Add(aGaugeRange1);
-            this.aGTemp.GaugeRanges.Add(aGaugeRange2);
-            this.aGTemp.GaugeRanges.Add(aGaugeRange3);
-            this.aGTemp.GaugeRanges.Add(aGaugeRange4);
+            aGaugeLabel3.Color = System.Drawing.SystemColors.WindowText;
+            aGaugeLabel3.Name = "GaugeLabel1";
+            aGaugeLabel3.Position = new System.Drawing.Point(70, 150);
+            aGaugeLabel3.Text = "Temperatura";
+            this.aGTemp.GaugeLabels.Add(aGaugeLabel3);
+            aGaugeRange5.Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            aGaugeRange5.EndValue = 30F;
+            aGaugeRange5.InnerRadius = 50;
+            aGaugeRange5.InRange = false;
+            aGaugeRange5.Name = "GaugeRangeNormal";
+            aGaugeRange5.OuterRadius = 80;
+            aGaugeRange5.StartValue = 0F;
+            aGaugeRange6.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            aGaugeRange6.EndValue = 60F;
+            aGaugeRange6.InnerRadius = 50;
+            aGaugeRange6.InRange = false;
+            aGaugeRange6.Name = "GaugeRangeAtencao";
+            aGaugeRange6.OuterRadius = 80;
+            aGaugeRange6.StartValue = 30F;
+            aGaugeRange7.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            aGaugeRange7.EndValue = 90F;
+            aGaugeRange7.InnerRadius = 50;
+            aGaugeRange7.InRange = false;
+            aGaugeRange7.Name = "GaugeRangeAlerta1";
+            aGaugeRange7.OuterRadius = 80;
+            aGaugeRange7.StartValue = 60F;
+            aGaugeRange8.Color = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            aGaugeRange8.EndValue = 120F;
+            aGaugeRange8.InnerRadius = 50;
+            aGaugeRange8.InRange = false;
+            aGaugeRange8.Name = "GaugeRangeAlerta2";
+            aGaugeRange8.OuterRadius = 80;
+            aGaugeRange8.StartValue = 90F;
+            this.aGTemp.GaugeRanges.Add(aGaugeRange5);
+            this.aGTemp.GaugeRanges.Add(aGaugeRange6);
+            this.aGTemp.GaugeRanges.Add(aGaugeRange7);
+            this.aGTemp.GaugeRanges.Add(aGaugeRange8);
             this.aGTemp.Location = new System.Drawing.Point(28, 10);
             this.aGTemp.Margin = new System.Windows.Forms.Padding(2);
             this.aGTemp.MaxValue = 120F;
@@ -138,11 +140,11 @@
             this.aGAjuste.BaseArcSweep = 270;
             this.aGAjuste.BaseArcWidth = 2;
             this.aGAjuste.Center = new System.Drawing.Point(100, 100);
-            aGaugeLabel2.Color = System.Drawing.SystemColors.WindowText;
-            aGaugeLabel2.Name = "GaugeLabelAjuste";
-            aGaugeLabel2.Position = new System.Drawing.Point(75, 150);
-            aGaugeLabel2.Text = "Ajuste (%)";
-            this.aGAjuste.GaugeLabels.Add(aGaugeLabel2);
+            aGaugeLabel4.Color = System.Drawing.SystemColors.WindowText;
+            aGaugeLabel4.Name = "GaugeLabelAjuste";
+            aGaugeLabel4.Position = new System.Drawing.Point(75, 150);
+            aGaugeLabel4.Text = "Ajuste (%)";
+            this.aGAjuste.GaugeLabels.Add(aGaugeLabel4);
             this.aGAjuste.Location = new System.Drawing.Point(262, 10);
             this.aGAjuste.Margin = new System.Windows.Forms.Padding(2);
             this.aGAjuste.MaxValue = 100F;
@@ -203,7 +205,7 @@
             // 
             // btIniciar
             // 
-            this.btIniciar.Location = new System.Drawing.Point(56, 396);
+            this.btIniciar.Location = new System.Drawing.Point(155, 526);
             this.btIniciar.Name = "btIniciar";
             this.btIniciar.Size = new System.Drawing.Size(75, 23);
             this.btIniciar.TabIndex = 8;
@@ -213,7 +215,7 @@
             // 
             // btFinalizar
             // 
-            this.btFinalizar.Location = new System.Drawing.Point(144, 396);
+            this.btFinalizar.Location = new System.Drawing.Point(243, 526);
             this.btFinalizar.Name = "btFinalizar";
             this.btFinalizar.Size = new System.Drawing.Size(75, 23);
             this.btFinalizar.TabIndex = 9;
@@ -224,7 +226,7 @@
             // comboBoxPortas
             // 
             this.comboBoxPortas.FormattingEnabled = true;
-            this.comboBoxPortas.Location = new System.Drawing.Point(98, 350);
+            this.comboBoxPortas.Location = new System.Drawing.Point(197, 480);
             this.comboBoxPortas.Name = "comboBoxPortas";
             this.comboBoxPortas.Size = new System.Drawing.Size(121, 21);
             this.comboBoxPortas.TabIndex = 10;
@@ -233,7 +235,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(53, 351);
+            this.label1.Location = new System.Drawing.Point(152, 481);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 16);
             this.label1.TabIndex = 11;
@@ -245,7 +247,7 @@
             // 
             // btLigarLED
             // 
-            this.btLigarLED.Location = new System.Drawing.Point(271, 396);
+            this.btLigarLED.Location = new System.Drawing.Point(147, 362);
             this.btLigarLED.Name = "btLigarLED";
             this.btLigarLED.Size = new System.Drawing.Size(94, 23);
             this.btLigarLED.TabIndex = 12;
@@ -255,7 +257,7 @@
             // 
             // btDesligarLED
             // 
-            this.btDesligarLED.Location = new System.Drawing.Point(368, 396);
+            this.btDesligarLED.Location = new System.Drawing.Point(244, 362);
             this.btDesligarLED.Name = "btDesligarLED";
             this.btDesligarLED.Size = new System.Drawing.Size(94, 23);
             this.btDesligarLED.TabIndex = 13;
@@ -263,11 +265,24 @@
             this.btDesligarLED.UseVisualStyleBackColor = true;
             this.btDesligarLED.Click += new System.EventHandler(this.btDesligarLED_Click);
             // 
+            // webView21
+            // 
+            this.webView21.AllowExternalDrop = true;
+            this.webView21.CreationProperties = null;
+            this.webView21.DefaultBackgroundColor = System.Drawing.Color.White;
+            this.webView21.Location = new System.Drawing.Point(492, 12);
+            this.webView21.Name = "webView21";
+            this.webView21.Size = new System.Drawing.Size(350, 603);
+            this.webView21.Source = new System.Uri("http://localhost:5000/", System.UriKind.Absolute);
+            this.webView21.TabIndex = 14;
+            this.webView21.ZoomFactor = 1D;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(500, 459);
+            this.ClientSize = new System.Drawing.Size(854, 627);
+            this.Controls.Add(this.webView21);
             this.Controls.Add(this.btDesligarLED);
             this.Controls.Add(this.btLigarLED);
             this.Controls.Add(this.label1);
@@ -284,6 +299,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.webView21)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -302,6 +318,7 @@
         private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.Button btLigarLED;
         private System.Windows.Forms.Button btDesligarLED;
+        private Microsoft.Web.WebView2.WinForms.WebView2 webView21;
     }
 }
 

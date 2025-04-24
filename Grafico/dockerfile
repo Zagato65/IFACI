@@ -1,0 +1,5 @@
+# Usar uma imagem leve com Nginx para servir arquivos estáticos
+FROM nginx:alpine
+
+# Copiar seus arquivos HTML para o diretório padrão do Nginx
+COPY index.html /usr/share/nginx/html/
