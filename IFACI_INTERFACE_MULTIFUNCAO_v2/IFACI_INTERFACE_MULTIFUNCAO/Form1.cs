@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,7 +27,7 @@ namespace IFACI_INTERFACE_MULTIFUNCAO
 
         private void lerDados(object sender, EventArgs e)
         {
-            string dadosBrutos = serialPort1.ReadExisting();
+            string dadosBrutos = serialPort1.ReadLine();
             if (!string.IsNullOrEmpty(dadosBrutos))
             {
                 string[] dados = dadosBrutos.Split(',');
@@ -38,8 +38,7 @@ namespace IFACI_INTERFACE_MULTIFUNCAO
                     {
                         if (valor > 0)
                         {
-                            float ajuste = (valor * 100) / 1023;
-                            aGAjuste.Value = ajuste;
+                            aGAjuste.Value = valor;
                         }
                         else
                         {
